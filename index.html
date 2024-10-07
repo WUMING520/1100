@@ -1406,7 +1406,43 @@ Q.PageInfo.sample = "";;
 </script>
 
 <!--登录和注册成功，操作风控，多个script-->
-
+<script glue-node="simplecommonsuccessTipTpl" type="text/tpl">
+    <div class="m-pc-cover-new"></div>
+    <section class="loginSuccessNew" glue-node="loginSuccess">
+      <!-- 有对勾追加selected -->
+        <img class='check_cricle_new' src="//pic1.iqiyipic.com/lequ/20240508/check-circle-dark@3x.png" alt="">
+        $!{title}
+    </section>
+</script>
+<script glue-node="simplecommonfailTipTpl" type="text/tpl">
+    <div class="m-pc-cover-new"></div>
+    <section class="loginFailNew" glue-node="loginFail">
+        $!{title}
+    </section>
+</script>
+ 
+</div>
+  <script type="text/javascript" src="//static.iqiyi.com/js/html5/js/lib/lib.2.0.3.min.js?sea1.2.min.js"></script>
+  <!-- <script type="text/javascript" src="//security.iqiyi.com/static/captcha/js/slideverify.js"></script>
+ -->
+  <script>
+    window.__QOE__ && __QOE__.mark('cooksdkDownloadStart');
+</script>
+<script type="text/javascript" src="https://security.iqiyi.com/static/cook/v1/cooksdk.js"></script>
+<script>
+    window.__QOE__ && __QOE__.mark('cooksdkDownloadEnd');
+    window.__QOE__ && __QOE__.measure("cooksdkDownload", 'cooksdkDownloadStart', 'cooksdkDownloadEnd', true);
+</script>
+  <section
+    class="m-toast"
+    style="display:none;"
+    glue-component="common.component.tip.toast"
+    glue-show="toastShow"
+    glue-bind-html="toastText"
+>将减少该类推荐</section>
+  <script src="//statics-web.iqiyi.com/common/jssdk/iqiyiJsBridge-v2-min.js"></script>
+  <script type="text/javascript">
+    Q.load("phw/js/page/userOpt/8466b85f!app.js");
   </script>
 </body>
 
