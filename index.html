@@ -210,12 +210,7 @@ Q.PageInfo.sample = "";;
   Q.PageInfo.openId = "";
   Q.PageInfo.page = "login";
 </script>
-<!-- <script src= '//static.iqiyi.com/js/common/vconsole.js'></script>
-<script>
-    // if (window.location.href.indexOf('vconsole=1') >= 0) {
-      var vconsole = new VConsole();
-    // }
-</script> -->
+
 
 <body>
   <!--手机号输入，忘记密码的提示框，图片和滑动验证码，请等待，登录成功，登录过于频繁的提示框，手机号未注册-->
@@ -519,7 +514,36 @@ Q.PageInfo.sample = "";;
     </div>
     <div class="m-equipment-lock equipment-lock-bottom" glue-show="smscodeerror==1" style="display: none">
         <a href="javascript:void(0);"><div class="lock-num info-Left link-fz link-Gcolor" data-node="resendSms">没有收到短信？点击重新发送</div></a>
-    
+    </div>
+    <div class="m-equipment-lock equipment-lock-bottom" glue-show="smscodeerror==2" style="display: none">
+        <div class="lock-num info-Left link-fz wrap-tip" data-node="errMsg">
+            系统错误，请稍后再试</div>
+    </div>
+</div>
+
+        #set($rseat='h5regvph_regbtn')
+        <div glue-component="page.userOpt.component.smsCodeButton" glue-id="viewId">
+    <div class="largest">
+        <div class="input_wrap detial-info">
+            <input class="input-block enterNumber" data-node="smsCode" placeholder="请输入收到的验证码" type="text" pattern="\d*" maxlength="6" onkeyup="value=this.value.replace(/\D+/g,'')">
+            <span class="wrap-tip" glue-show="smsCodeError==1" style="display:none"><i class="c-glyphicon c-glyphicon-failde"></i><span glue-node="errorMsg"></span></span>
+        </div>
+    </div>
+    <div class="btnWrap btnWrap-top" glue-show="showBtn==0" style="display:none">
+        <a class="c-btn-block c-btn-base" href="javascript:void(0);" glue-node="smsConfirm" data-rseat="$!{rseat}" data-rpage="$!{rpage}">下一步</a>
+    </div>
+</div>
+
+        <div class="m-tips-link resetH"></div>
+        <div class="m-box" style="display:none;"
+    glue-component="page.userOpt.component.form.slideVerifyNew">
+    <div class="m-box-items m-box-items-full cover">
+        <div class="m-yzm-close" glue-node="close"><i class="c-glyphicon c-glyphicon-guideClose"></i></div>
+        <div class="m-popup popup-yzm">
+        <div id="slide" class="m-yzm-code-wrap"></div>
+        </div>
+    </div>
+</div>
 
     </section>
     <!-- 登录信息 end-->
@@ -560,9 +584,78 @@ Q.PageInfo.sample = "";;
         <a class="c-tips-link" href="baseLogin" glue-component="page.userOpt.component.forward" data-rseat="password_btn">账号密码登录</a>
     </div>
 </section> 
- >
- 
+        </script>
 
+    <script glue-node="smsLogin" type="text/velocity">
+             <div glue-component="page.userOpt.component.smsLogin" glue-id="rootViewId">
+  <div class="m-pc-title-sms">
+    <h4 class="title" glue-component="page.userOpt.component.title">登录爱奇艺</h4>
+  </div>
+  <section class="m-loginNew">
+    #set($placeholder = "输入手机号")
+    #set($inputType = "phone")
+    #set($areaCase = '1')
+    <div glue-component="page.userOpt.component.username" data-case="$!{areaCase}" data-logintype="$!{logintype}">
+    <div class="largest">
+        <div class="input_wrap detial-info">
+            <div class="address-selection">
+                <i class="c-glyphicon c-glyphicon-arrowDown"></i>
+                <select class="elect-area" data-node="area"></select>
+            </div>
+            <div class="wrap-info" glue-show="usernameInput==1">
+                <div class="inner_top" glue-show="usernameTip==0" style="display: none;">$!{placeholder}</div>
+                <div class="inner_top inner_top_error" data-node="usernameError" glue-show="usernameTip==1" style="display: none;"></div>
+                <input class="input-block enterNumber inputH" id="phoneNumber" name="phoneNumber"  data-node="username" type="$!{inputType}" placeholder="$!{placeholder}">
+            </div>
+            <div class="wrap-info" glue-show="usernameInput==-1" style="display: none; color: #000;">
+                <div class="enterNumber inputH" glue-node="usernameShadow"></div>
+            </div>
+            <a class="forward-btn" href="javascript:void(0);" data-node="forwardBtn" glue-show="showForwardBtn==1" style="display:none"></a>
+        </div>
+    </div>
+</div>
+
+    <div class="m-tips-link resetHNew"></div>
+    #set($logintype = 'smsLogin')
+    <!-- 用户协议和隐私政策 -->
+<div class="agreement-link" data-logintype="$!{logintype}" glue-component="page.userOpt.component.protocol" data-node="protocolBox">
+    <!-- <div class="inner_error">
+        <span data-node="err">请阅读勾选用户协议和隐私政策</span>
+    </div> -->
+<a class="c-check-link" data-node="agree"><i class="c-glyphicon c-glyphicon-checkbox"></i></a>阅读并同意<a class="c-link"
+        data-node="protocol" href="javascript:void(0);">《用户协议》</a>和<a class="c-link" data-node="private"
+        href="javascript:void(0);">《隐私政策》</a>
+</div>
+<!-- 用户协议和隐私政策 end -->
+
+
+    <!-- 输入验证码模块 -->
+    <div class="largest">
+      <div class="input_wrap_new detial-info">
+          <input class="input-block-new enterNumber" data-node="smsCode" placeholder="请输入验证码" type="text" pattern="\d*" maxlength="6" onkeyup="value=this.value.replace(/\D+/g,'')">
+          <span class="wrap-tip" glue-show="smsCodeError==1" style="display:none"><i class="c-glyphicon c-glyphicon-failde"></i><span glue-node="errorMsg"></span></span>
+          <span  class="access-ver-code access-ver-code-opacity" data-node="checkuser" data-type="checkuser" data-rseat="login_btn" data-rpage="phone_login1">获取验证码</span>
+          <!-- <span class="wrap-tip" glue-show="smsCodeError==1" style="display:none"><i class="c-glyphicon c-glyphicon-failde"></i><span glue-node="errorMsg"></span></span> -->
+      </div>
+    </div>
+    <div class="btnWrap btnWrap-top">
+        <a class="c-btn-block c-btn-base c-btn-base-opacity" href="javascript:void(0);" glue-node="smsConfirm" data-rseat="$!{rseat}" data-rpage="$!{rpage}">登录爱奇艺</a>
+    </div>
+
+    <!-- <div class="m-tips-link" glue-show="showBtn == 0" style="display:none">
+      <div glue-component="page.userOpt.component.sendSmsCodeBtn" glue-id="viewId"></div>
+      <a class="c-btn-block c-btn-base " href="javascript:void(0);" data-node="checkuser" data-rseat="login_btn"
+        data-rpage="phone_login1">获取短信验证码</a>
+    </div> -->
+    <div class="m-box" style="display:none;"
+    glue-component="page.userOpt.component.form.slideVerifyNew">
+    <div class="m-box-items m-box-items-full cover">
+        <div class="m-yzm-close" glue-node="close"><i class="c-glyphicon c-glyphicon-guideClose"></i></div>
+        <div class="m-popup popup-yzm">
+        <div id="slide" class="m-yzm-code-wrap"></div>
+        </div>
+    </div>
+</div>
 
      <!-- 第三方登录按钮 -->
     <div class="m-loginWay-new selected" glue-show="otherLoginShow==1">
@@ -633,7 +726,10 @@ Q.PageInfo.sample = "";;
         <a class="c-btn-block c-btn-base selected" href="javascript:void(0);" data-node="sendedSmsCodeBtn" data-rseat="$!{rseatvphbtn}">已经发送了</a>
     </div>
 
-   
+    <div class="lost-message"  glue-show="tipShow == 2" style="display: none;">
+        <h3 class="lost-title">我们没能收到您的短信</h3>
+        <p class="lost-reason">大部分情况下这和手机信号强弱有关<br>您可以找个信号更好的地方尝试 <a class="re-send" href="javascript:void(0);" data-node="resendBtn" data-rseat="$!{rseattmoutfrsh}">重新发送</a></p>
+    </div>
 
     <a class="timeout-refresh" href="javascript:void(0);" glue-show="tipShow == 3" style="display: none;">
         <i class="c-glyphicon c-glyphicon-HSrefresh"></i>已超时，请刷新
@@ -653,7 +749,75 @@ Q.PageInfo.sample = "";;
 
 </section>
  
+        </script>
 
+    <script glue-node="registered" type="text/velocity">
+             <!-- title -->
+<div class="m-pc-title">
+<h3 class="title" glue-component="page.userOpt.component.title">输入验证码</h3>
+</div>
+<!-- title end -->
+<!-- 已经注册封面图 -->
+<section class="m-pc-alreadyReg">
+<i class="alreadyReg"></i>
+<p class="alreadyReg-txt">发现您曾经注册过爱奇艺账号<br>为您登录中...</p>
+</section>
+<!-- 已经注册封面图 end --> 
+        </script>
+
+    <script glue-node="unregister" type="text/velocity">
+             <div class="m-pc-title">
+    <h3 class="title" glue-component="page.userOpt.component.title">手机号未注册</h3>
+</div>
+<section class="m-loginNew" glue-component="page.userOpt.component.unregister" glue-id="rootViewId">
+    #set($rseat='h5smslgnnrg_eph')
+    #set($areaCase = '1')
+    <div class="m-arrdess" glue-component="page.userOpt.component.showPhone"  data-case="$!{areaCase}">
+    <span class="choose-add" data-node="areaName"></span>
+    <div class="phone-num" data-node="phoneNumberShow"></div>
+    <a href="javascript:void(0);" class="link-alter" data-node="changePhone">修改</a>
+</div>
+
+    <div class="m-equipment-lock equipment-lock-bottom multi-line">
+        <div class="lock-num info-Left link-fz">该号码尚未注册过爱奇艺，勾选同意用户协议和隐私政策即可完成注册。</div>
+    </div>
+    <!-- 同意协议 -->
+<div class="m-agree" glue-component="page.userOpt.component.registerAgreement">
+    <p class="agree">
+        <a class="c-check-link" glue-node="checkbox"><i class="c-glyphicon c-glyphicon-checkbox"></i></a>同意<a
+            data-node="protocol" href="javascript:void(0);" class="color">用户协议</a>和<a data-node="private"
+            href="javascript:void(0);" class="color">隐私政策</a> (必选)
+    </p>
+    <p class="agree">
+        <a class="c-check-link" glue-node="checkboxMsg"><i
+                class="c-glyphicon c-glyphicon-checkbox"></i></a>同意爱奇艺向您发送会员服务、精彩视频等商业信息
+    </p>
+</div>
+
+<!-- 同意协议end -->
+
+    <div class="btnWrap">
+        <div glue-show="showBtn==0">
+            #set($button = "注册")
+            #set($rseat='')
+            #set($selectedClass = 'disabled-btn')
+            <div glue-component="page.userOpt.component.sendSmsCodeBtn" glue-id="viewId">
+    <a class="c-btn-block c-btn-base $!{selectedClass}" href="javascript:void(0);" data-node="sendSmsCode" data-rseat="$!{rseat}">$!{button}</a>
+</div>
+
+        </div>
+    </div>
+    <div class="m-box" style="display:none;"
+    glue-component="page.userOpt.component.form.slideVerifyNew">
+    <div class="m-box-items m-box-items-full cover">
+        <div class="m-yzm-close" glue-node="close"><i class="c-glyphicon c-glyphicon-guideClose"></i></div>
+        <div class="m-popup popup-yzm">
+        <div id="slide" class="m-yzm-code-wrap"></div>
+        </div>
+    </div>
+</div>
+
+</section>
  
         </script>
     <script glue-node="queryPhone" type="text/velocity">
@@ -897,7 +1061,95 @@ Q.PageInfo.sample = "";;
     </section>
 </div>
  
-     
+        </script>
+    <script glue-node="weixinOpt" type="text/velocity">
+           <div class="weixin-bg">
+  <div class="m-pc-weixin-icon">
+    <img src="//pic0.iqiyipic.com/lequ/20240202/823e728becbd42c281ad707bcac83db1.png" alt="">
+  </div>
+  <div >
+    <div class="m-pc-weixin-title" glue-component="page.userOpt.component.title">登录爱奇艺</div>
+  </div>
+  <!-- 用户协议和隐私政策 -->
+<div class="agreement-link" data-logintype="$!{logintype}" glue-component="page.userOpt.component.protocol" data-node="protocolBox">
+    <!-- <div class="inner_error">
+        <span data-node="err">请阅读勾选用户协议和隐私政策</span>
+    </div> -->
+    <a class="c-check-link" data-node="agree"><i class="c-glyphicon c-glyphicon-checkbox"></i></a>阅读并同意<a class="c-link"
+        data-node="protocol" href="javascript:void(0);">《用户协议》</a>和<a class="c-link" data-node="private"
+        href="javascript:void(0);">《隐私政策》</a>
+</div>
+<!-- 用户协议和隐私政策 end -->
+
+  <div class="weixin-allbtn" data-component="page.userOpt.component.weixinOpt">
+    <div class="weixin-login" data-node="weixinBtn">
+      <img class="weixin-img" src="//pic3.iqiyipic.com/lequ/20240202/7a824da0b3984655ab96401e660fbe87.jpg" alt="">
+      <span>微信一键登录</span>  
+    </div>
+    <div class="weixin-switch-sms-login" data-node="smsBtn">短信验证登录</div>
+  </div>
+</div>
+ 
+      </script>
+    <script glue-node="quickLogin" type="text/velocity">
+           <div class="weixin-bg">
+  <div class="m-pc-weixin-icon">
+    <img src="//pic0.iqiyipic.com/lequ/20240202/823e728becbd42c281ad707bcac83db1.png" alt="">
+  </div>
+  <div >
+    <div class="m-pc-weixin-title" glue-component="page.userOpt.component.title">登录爱奇艺</div>
+  </div>
+  <!-- 用户协议和隐私政策 -->
+<div class="agreement-link" data-logintype="$!{logintype}" glue-component="page.userOpt.component.protocol" data-node="protocolBox">
+    <!-- <div class="inner_error">
+        <span data-node="err">请阅读勾选用户协议和隐私政策</span>
+    </div> -->
+    <a class="c-check-link" data-node="agree"><i class="c-glyphicon c-glyphicon-checkbox"></i></a>阅读并同意<a class="c-link"
+        data-node="protocol" href="javascript:void(0);">《用户协议》</a>和<a class="c-link" data-node="private"
+        href="javascript:void(0);">《隐私政策》</a>
+</div>
+<!-- 用户协议和隐私政策 end -->
+
+  <div class="weixin-allbtn" data-component="page.userOpt.component.quickLogin">
+    <div class="weixin-login" data-node="quickLogin">
+      <!-- <img class="weixin-img" src="//pic3.iqiyipic.com/lequ/20240202/7a824da0b3984655ab96401e660fbe87.jpg" alt=""> -->
+      <span>爱奇艺APP一键登录</span>  
+    </div>
+    <div class="weixin-switch-sms-login" data-node="smsBtn">短信验证登录</div>
+  </div>
+</div>
+ 
+      </script>
+    <!-- 页底 -->
+<div class="m-pc-footer" glue-component="page.userOpt.component.footer">
+    <a class="c-link c-change" href="javascript:void(0);" style="display:none;">
+        手机号换了
+    </a>
+    <!-- <a class="c-link" data-rseat="h5cmm_2hlp" href="//cserver.iqiyi.com/feedback/mobile/app.html?entrance_id=lKEKOZrE" glue-show="helpshow"
+        style="display: none;">
+        帮助反馈
+    </a> -->
+</div>
+<!-- 页底 end -->
+  </div>
+  <div class="m-agreement-model agreement-link" glue-id="protocolModel" style="display:none;" glue-component="page.userOpt.component.protocolModel" glue-show="modelShow" >
+    <div class="m-am-wrapper">
+      <div class="m-am-content">
+        请阅读并同意<a class="c-link"
+            data-node="protocol" href="https://www.iqiyi.com/common/loginProtocol.html">《用户协议》</a>和<a class="c-link"
+            data-node="private" href="https://www.iqiyi.com/common/privateh5.html">《隐私政策》
+        </a>
+      </div>
+      <div class="m-am-bottom">
+        <div class="m-am-left m-am-btn"  data-node="cancel">取消</div>
+        <div class="m-am-right m-am-btn" style="display:none;" glue-show="accessSms" data-node="confirm">同意并获取</div>
+        <div class="m-am-right m-am-btn" style="display:none;" glue-show="common" data-node="confirm">同意并登录</div>
+      </div>
+    </div>
+</div>
+  <div class="m-agreement-model agreement-link" glue-id="appealModel" style="display:none;" glue-component="page.userOpt.component.appealModel" glue-show="modelShow" >
+    <div class="m-am-wrapper" style="width: 3rem; height: 1.45rem;">
+      <div class="m-am-content" style="font-size: .172rem; font-family:PingFangSC-Regular; line-height: .25rem; ">
         您可访问爱奇艺APP，在“我的-帮助与反馈-修改手机号”中进行申诉
       </div>
       <div class="m-am-bottom">
@@ -1065,8 +1317,7 @@ Q.PageInfo.sample = "";;
  
 </div>
   <script type="text/javascript" src="//static.iqiyi.com/js/html5/js/lib/lib.2.0.3.min.js?sea1.2.min.js"></script>
-  <!-- <script type="text/javascript" src="//security.iqiyi.com/static/captcha/js/slideverify.js"></script>
- -->
+ 
   <script>
     window.__QOE__ && __QOE__.mark('cooksdkDownloadStart');
 </script>
