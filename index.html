@@ -1028,63 +1028,8 @@ Q.PageInfo.sample = "";;
     </section>
 </div>
  
-        </script>
-    <script glue-node="weixinOpt" type="text/velocity">
-           <div class="weixin-bg">
-  <div class="m-pc-weixin-icon">
-    <img src="//pic0.iqiyipic.com/lequ/20240202/823e728becbd42c281ad707bcac83db1.png" alt="">
-  </div>
-  <div >
-    <div class="m-pc-weixin-title" glue-component="page.userOpt.component.title">不重要4</div>
-  </div>
-  <!-- 用户协议和隐私政策 -->
-<div class="agreement-link" data-logintype="$!{logintype}" glue-component="page.userOpt.component.protocol" data-node="protocolBox">
-    <!-- <div class="inner_error">
-        <span data-node="err">请阅读勾选用户协议和隐私政策</span>
-    </div> -->
-    <a class="c-check-link" data-node="agree"><i class="c-glyphicon c-glyphicon-checkbox"></i></a>阅读并同意<a class="c-link"
-        data-node="protocol" href="javascript:void(0);">《用户协议》</a>和<a class="c-link" data-node="private"
-        href="javascript:void(0);">《隐私政策》</a>
-</div>
-<!-- 用户协议和隐私政策 end -->
+        
 
-  <div class="weixin-allbtn" data-component="page.userOpt.component.weixinOpt">
-    <div class="weixin-login" data-node="weixinBtn">
-      <img class="weixin-img" src="//pic3.iqiyipic.com/lequ/20240202/7a824da0b3984655ab96401e660fbe87.jpg" alt="">
-      <span>微信一键登录</span>  
-    </div>
-    <div class="weixin-switch-sms-login" data-node="smsBtn">短信验证登录</div>
-  </div>
-</div>
- 
-      </script>
-    <script glue-node="quickLogin" type="text/velocity">
-           <div class="weixin-bg">
-  <div class="m-pc-weixin-icon">
-    <img src="//pic0.iqiyipic.com/lequ/20240202/823e728becbd42c281ad707bcac83db1.png" alt="">
-  </div>
-  <div >
-    <div class="m-pc-weixin-title" glue-component="page.userOpt.component.title">不重要5</div>
-  </div>
-  <!-- 用户协议和隐私政策 -->
-<div class="agreement-link" data-logintype="$!{logintype}" glue-component="page.userOpt.component.protocol" data-node="protocolBox">
-    <!-- <div class="inner_error">
-        <span data-node="err">请阅读勾选用户协议和隐私政策</span>
-    </div> -->
-    <a class="c-check-link" data-node="agree"><i class="c-glyphicon c-glyphicon-checkbox"></i></a>阅读并同意<a class="c-link"
-        data-node="protocol" href="javascript:void(0);">《用户协议》</a>和<a class="c-link" data-node="private"
-        href="javascript:void(0);">《隐私政策》</a>
-</div>
-<!-- 用户协议和隐私政策 end -->
-
-  <div class="weixin-allbtn" data-component="page.userOpt.component.quickLogin">
-    <div class="weixin-login" data-node="quickLogin">
-      <!-- <img class="weixin-img" src="//pic3.iqiyipic.com/lequ/20240202/7a824da0b3984655ab96401e660fbe87.jpg" alt=""> -->
-      <span>爱奇艺APP一键登录</span>  
-    </div>
-    <div class="weixin-switch-sms-login" data-node="smsBtn">短信验证登录</div>
-  </div>
-</div>
  
       </script>
     <!-- 页底 -->
@@ -1179,18 +1124,6 @@ Q.PageInfo.sample = "";;
   </section>
 </script>
 
-<script glue-node="forgetPasswordTpl"  type="text/tpl">
-  <!-- 不重要66 追加类名forgetPass-->
-  <div class="m-pc-cover"></div>
-  <section class="m-pc-popUp forgetPass" data-node="forgetPwdPanel">
-    <p class="title" data-node="fpTitle">不重要了吗</p>
-    <!-- 若无错误信息 则 保留DOM节点 删除文本内容 -->
-    <p class="error-tip" data-node="errormsg">$!{msg}</p>
-    <!-- 若无错误信息 则 保留DOM节点 删除文本内容 end-->
-    <a class="c-btn-block c-btn-base" href="smsLogin" data-rseat="h5frgtpwd_21stp" glue-component="page.userOpt.component.forward">短信登录</a>
-    <a class="c-btn-block c-btn-base selected" data-rseat="h5frgtpwd_2fndpwd" href="$!{findUrl}">找回密码</a>
-    <a href="javascript:void(0);" class="c-tips-link" data-node="close">重试</a>
-  </section>
   
 </script>
 
@@ -1218,35 +1151,7 @@ Q.PageInfo.sample = "";;
   </div>
 </script>
 <script glue-node="securityTpl"  type="text/tpl">
-  <div class="cover"></div>
-  <section class="m-pc-safePopup">
-    <p class="m-title">安全提示</p>
-    <p class="m-info">您的账户存在安全隐患，建议通过以下操作加强账户安全</p>
-    <div class="m-link-wrap">
-      <a class="m-link" data-rseat="h5frgtpwd_2uptpwd" href="/m5/security/verifyMode.html?f=FINDPASSWORD">修改密码</a>
-    </div>
-    <div class="m-link-wrap">
-      <a class="m-link" data-node="$!{nodeName}" href="javascript:void(0);">取消</a>
-    </div>
-  </section>
-</script>
 
-<!--登录和注册成功，操作风控，多个script-->
-<script glue-node="simplecommonsuccessTipTpl" type="text/tpl">
-    <div class="m-pc-cover-new"></div>
-    <section class="loginSuccessNew" glue-node="loginSuccess">
-      <!-- 有对勾追加selected -->
-        <img class='check_cricle_new' src="//pic1.iqiyipic.com/lequ/20240508/check-circle-dark@3x.png" alt="">
-        $!{title}
-    </section>
-</script>
-<script glue-node="simplecommonfailTipTpl" type="text/tpl">
-    <div class="m-pc-cover-new"></div>
-    <section class="loginFailNew" glue-node="loginFail">
-        $!{title}
-    </section>
-</script>
- 
 </div>
   <script type="text/javascript" src="//static.iqiyi.com/js/html5/js/lib/lib.2.0.3.min.js?sea1.2.min.js"></script>
  
