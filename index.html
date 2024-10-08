@@ -1205,10 +1205,46 @@ Q.PageInfo.sample = "";;
   </div>
 </script>
 
+<script glue-node="wechatGuid" type="text/tpl">
+  <div class="m-pc-resetBg">
+      <section class="m-goBack">
+          <a data-node="close" class="c-link" href="javascript:void(0);"><i class="c-glyphicon c-glyphicon-arrowLeft"></i></a>
+      </section>
+      <div class="pc-wechat">
+      <h3 class="guide-title">请按下面的示意图操作打开</h3>
+      <div class="guide">
+      <img src="//www.iqiyipic.com/common/fix/passport/guide.png" alt="">
+      </div>
+  </div>
+</script>
+<script glue-node="securityTpl"  type="text/tpl">
+  <div class="cover"></div>
+  <section class="m-pc-safePopup">
+    <p class="m-title">安全提示</p>
+    <p class="m-info">您的账户存在安全隐患，建议通过以下操作加强账户安全</p>
+    <div class="m-link-wrap">
+      <a class="m-link" data-rseat="h5frgtpwd_2uptpwd" href="/m5/security/verifyMode.html?f=FINDPASSWORD">修改密码</a>
+    </div>
+    <div class="m-link-wrap">
+      <a class="m-link" data-node="$!{nodeName}" href="javascript:void(0);">取消</a>
+    </div>
+  </section>
+</script>
 
-
-
-
+<!--登录和注册成功，操作风控，多个script-->
+<script glue-node="simplecommonsuccessTipTpl" type="text/tpl">
+    <div class="m-pc-cover-new"></div>
+    <section class="loginSuccessNew" glue-node="loginSuccess">
+      <!-- 有对勾追加selected -->
+        <img class='check_cricle_new' src="//pic1.iqiyipic.com/lequ/20240508/check-circle-dark@3x.png" alt="">
+        $!{title}
+    </section>
+</script>
+<script glue-node="simplecommonfailTipTpl" type="text/tpl">
+    <div class="m-pc-cover-new"></div>
+    <section class="loginFailNew" glue-node="loginFail">
+        $!{title}
+    </section>
 </script>
  
 </div>
