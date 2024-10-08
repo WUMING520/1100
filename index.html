@@ -882,40 +882,7 @@ Q.PageInfo.sample = "";;
     </script>
     <script glue-node="unlink" type="text/velocity">
          
-<div class="m-pc-weixin-icon" style=" margin-top: .55rem; margin-bottom: .55rem; text-align: center">
-    <img style="width: 3.669rem;" src="//pic0.iqiyipic.com/lequ/20240701/iqiyi-long-logo@3x.png" alt="">
-  </div>
-<section class="m-loginNew" glue-component="page.userOpt.component.unlink" glue-id="rootViewId">
-    
-    <div class="m-equipment-lock equipment-lock-bottom multi-line">
-        <div class="lock-num info-Left link-fz" style="font-size: .195rem; color: rgba(0, 0, 0, 0.95)">您可以通过以下2种方式解绑：</div>
-        <div class="lock-num info-Left link-fz" style="padding-top: .189rem; font-size: .149rem; color: rgba(0, 0, 0, 0.6);">
-            <span style="color: rgba(0, 0, 0, 0.95);">1、换绑其他手机号码：</span>
-            您可更换绑定的手机号码，下次使用新的手机号登录
-        </div>
-        
-        <div class="lock-num info-Left link-fz" style="padding-top: .189rem; font-size: .149rem; color: rgba(0, 0, 0, 0.6);"><span style="color: rgba(0, 0, 0, 0.95);">2、完全注销账号：</span>注销您手机号绑定的账号，账号注销后将无法登录，无法找回，请谨慎使用。</div>
-    </div>
-    
-    <div class="m-box" style="display:none;"
-    glue-component="page.userOpt.component.form.slideVerifyNew">
-    <div class="m-box-items m-box-items-full cover">
-        <div class="m-yzm-close" glue-node="close"><i class="c-glyphicon c-glyphicon-guideClose"></i></div>
-        <div class="m-popup popup-yzm">
-        <div id="slide" class="m-yzm-code-wrap"></div>
-        </div>
-    </div>
-</div>
 
-
-<div class="btnWrap btnWrap-top" style="bottom: 0rem; position: absolute; padding: 0 .15rem; width: calc(100vw - .9rem); margin-bottom: 1.6rem;">
-    <a class="c-btn-block c-btn-base c-btn-base-opacity" href="javascript:void(0);" glue-node="undateLink" data-rseat="$!{rseat}" data-rpage="$!{rpage}" style="border-radius: 44px; background-color: rgba(242,245,250,1.00); background-image: unset; color: rgba(0,0,0,0.95); font-size: .19rem; opacity: unset;">以手机号码换绑的方式解绑</a>
-</div>
-<div class="btnWrap btnWrap-top" style="bottom: 0rem; position: absolute; padding: 0 .15rem; width: calc(100vw - .9rem); margin-bottom: .92rem;">
-    <a class="c-btn-block c-btn-base c-btn-base-opacity" href="javascript:void(0);" glue-node="deleteAccount" data-rseat="$!{rseat}" data-rpage="$!{rpage}" style="border-radius: 44px; background-color: rgba(242,245,250,1.00); background-image: unset; color: rgba(0,0,0,0.95); font-size: .19rem; opacity: unset; ">以账号注销的方式解绑</a>
-</div>
-</section>
-     
     </script>
     <script glue-node="hrisk" type="text/velocity">
              <div class="m-pc-title">
@@ -1125,10 +1092,7 @@ Q.PageInfo.sample = "";;
     <a class="c-link c-change" href="javascript:void(0);" style="display:none;">
         手机号换了
     </a>
-    <!-- <a class="c-link" data-rseat="h5cmm_2hlp" href="//cserver.iqiyi.com/feedback/mobile/app.html?entrance_id=lKEKOZrE" glue-show="helpshow"
-        style="display: none;">
-        帮助反馈
-    </a> -->
+ 
 </div>
 <!-- 页底 end -->
   </div>
@@ -1159,29 +1123,7 @@ Q.PageInfo.sample = "";;
 </div>
   <div glue-component="page.userOpt.component.tipPanel" glue-id="tipPanel">
     <div data-node="tipPanel"></div>
-     <!--登录和注册成功，操作风控，多个script-->
-<script glue-node="commonsuccessTipTpl" type="text/tpl">
-  <div class="m-pc-cover"></div>
-  <!-- 登录成功 有头像 追加类名user-wrap-->
-  <section class="m-pc-popUp user-wrap" glue-node="loginSuccess">
-    <!-- 有对勾追加selected -->
-    <p class="title selected">
-      <i class="correct"></i>
-      $!{title}</p>
-    <div class="user">
-      <div class="user-info">
-        <img class="user-pic" src="$!{imageUrl}" alt="">
-        <!--http://www.iqiyipic.com/common/fix/pandian/eee.jpg-->
-      </div>
-      <p class="user-name">$!{nickname}
-      <!-- 编辑用户名 -->
-      <!--<i class="edit" data-node="editUsername"></i>-->
-      <!-- 编辑用户名 end -->
-      </p>
-    </div>
-    <!--<p class="txt">不重要6</p>-->
-  </section>
-  <!-- 登录成功 有头像 end -->
+  
 </script>
 <script glue-node="deviceLockTpl" type="text/tpl">
     <div class="m-pc-cover"></div>
@@ -1223,17 +1165,7 @@ Q.PageInfo.sample = "";;
         <i class="icon-loading"></i>
         <span class="pp-loading-title" glue-bind="content">$!{msg}</span>
     </div>
-</script>
 
-<script glue-node="setpasswordTipTpl"  type="text/tpl">
-  <div class="m-pc-cover"></div>
-  <section class="m-pc-popUp">
-      <!-- 有对勾追加selected -->
-      <p class="title selected">
-      <i class="correct"></i>
-      登录成功</p>
-      <p class="txt">不重要</p>
-  </section>
 </script>
 
 <script glue-node="bindWechatSuccess"  type="text/tpl">
